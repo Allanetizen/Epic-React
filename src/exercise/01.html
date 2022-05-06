@@ -20,7 +20,7 @@
 
 
 
-<body>
+<!-- <body>
     <div id="root">
         <script type="module">
             const rootElement = document.getElementById('root');
@@ -31,4 +31,17 @@
         </script>
 
     </div>
+</body> -->
+
+<!-- Generating a rootNode using Js -->
+<body>
+    <script type="module">
+        const rootElement = document.createElement('div')
+        document.body.append(rootElement)
+        const myElement = document.createElement('div');
+        myElement.textContent =  'Hello World';
+        myElement.className = 'container';
+        rootElement.append(myElement);
+
+    </script>
 </body>
