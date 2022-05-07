@@ -16,9 +16,14 @@
     // You're going to re-implement this code using React!
     // 💣 So go ahead and delete this implementation (or comment it out for now)
     // These three lines are similar to React.createElement
+    const hello = React.createElement('span',{}, 'Hello')
+    const world = React.createElement('span',{}, 'World')
+
     const myElement = React.createElement('div',{
        className:'container',
-       children:'Hello World!'})
+       
+       }, hello , ' ', world,
+       )
    
     ReactDOM.render(myElement,rootElement)
     
