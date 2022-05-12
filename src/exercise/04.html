@@ -8,20 +8,35 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
-    function Message({ children }) {
+    function Message({ subject,greeting }) {
 
-      return <div className='message'> {children}</div>
+      return <div className='message'> 
+        {greeting},{subject}
+            </div>
     }
 
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    const goodbyeMessage = React.createElement(message,{children:'Goodbye World'} )
+    // const goodbyeMessage = React.createElement(message,{children:'Goodbye World'} )
+    
+    Message.propTypes ={
+      subject(props, propName, componentName){
+        console.log({props, propName, componentName})
+        const type = typeof props[propName] 
+        if(type !=='string'){
+          return new Error(
+            `The component ${componentName} needs the prop ${propName } to be a type of string but was passed as ${type}`
+          )
+
+        }
+      }
+    }
     
     const element = (
       <div className="container">
-        <Message>Hello World</Message>
-        {goodbyeMessage}
+        <Message greeting="Hello" subject={5}/>
+        <Message greeting="Goodbye" subject ="My  people"/>
 
       </div>
     )
