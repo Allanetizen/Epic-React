@@ -22,10 +22,11 @@
       greeting: PropTypes.string.isRequired,
     }
     const element = (
-      <div className="container">
+        <React.Fragment>
         <Message greeting="Hello" subject="world" />
         <Message greeting="Goodbye" subject="My  people" />
-      </div>
+        </React.Fragment>
+
     )
     ReactDOM.createRoot(document.getElementById('root')).render(element)
   </script>
